@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --foreground-rgb: 55, 65, 81; /* gray-700 */
+    --background-start-rgb: 255, 255, 255;
+    --background-end-rgb: 249, 250, 251; /* gray-50 */
+  }
+
+  * {
+    @apply border-gray-200;
+  }
+
+  body {
+    @apply text-gray-700 antialiased;
+    color: rgb(var(--foreground-rgb));
+    background: rgb(var(--background-start-rgb));
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-gray-900 font-bold;
+  }
+
+  h1 {
+    @apply text-3xl;
+  }
+
+  h2 {
+    @apply text-2xl;
+  }
+
+  h3 {
+    @apply text-xl;
+  }
+
+  a {
+    @apply text-primary-600 hover:text-primary-700 transition-colors;
+  }
+
+  button {
+    @apply transition-all duration-200;
+  }
+
+  input, textarea, select {
+    @apply transition-colors duration-200;
+  }
+}
+
+@layer utilities {
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+}
