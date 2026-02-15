@@ -220,11 +220,7 @@ export default function TaskDetailPage() {
 
             {isEditMode ? (
               <TaskForm
-                mode="edit"
-                initialData={{
-                  title: task.title,
-                  description: task.description || undefined,
-                }}
+                task={task}
                 onSubmit={handleSubmitEdit}
                 onCancel={handleCancelEdit}
                 isLoading={isUpdating}

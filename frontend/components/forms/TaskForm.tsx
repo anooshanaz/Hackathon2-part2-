@@ -1,189 +1,107 @@
-/**
- * TaskForm component for task creation/editing
- */
+import React, { useState, useEffect } from 'react';
+import { Task, UpdateTaskData } from '@/types';
 
-'use client'
-
-import { FormEvent, useState, useEffect } from 'react'
-import Input from '@/components/ui/Input'
-import Button from '@/components/ui/Button'
-import { CreateTaskData, UpdateTaskData, FormErrors, VALIDATION_LIMITS } from '@/types'
-
-export interface TaskFormProps {
-  mode: 'create' | 'edit'
-  initialData?: {
-    title: string
-    description?: string
-  }
-  onSubmit: (data: CreateTaskData | UpdateTaskData) => Promise<void>
-  onCancel: () => void
-  isLoading?: boolean
-  error?: string
+interface TaskFormProps {
+  task?: Task;
+  onSubmit: (data: UpdateTaskData) => void;
+  onCancel: () => void;
+  isLoading?: boolean;
+  error?: string;
 }
 
-export default function TaskForm({
-  mode,
-  initialData,
+const TaskForm: React.FC<TaskFormProps> = ({
+  task,
   onSubmit,
   onCancel,
   isLoading = false,
   error,
-}: TaskFormProps) {
-  const [title, setTitle] = useState(initialData?.title || '')
-  const [description, setDescription] = useState(initialData?.description || '')
-  const [errors, setErrors] = useState<FormErrors>({})
-  const [touched, setTouched] = useState<Record<string, boolean>>({})
+}) => {
+  const [title, setTitle] = useState(task?.title || '');
+  const [description, setDescription] = useState(task?.description || '');
+  const [completed, setCompleted] = useState(task?.completed || false);
 
-  // Update form when initialData changes
   useEffect(() => {
-    if (initialData) {
-      setTitle(initialData.title)
-      setDescription(initialData.description || '')
+    if (task) {
+      setTitle(task.title);
+      setDescription(task.description || '');
+      setCompleted(task.completed);
     }
-  }, [initialData])
+  }, [task]);
 
-  const validateForm = (): boolean => {
-    const newErrors: FormErrors = {}
-
-    // Validate title
-    if (!title.trim()) {
-      newErrors.title = 'Title is required'
-    } else if (title.trim().length > VALIDATION_LIMITS.TITLE_MAX_LENGTH) {
-      newErrors.title = `Title must be less than ${VALIDATION_LIMITS.TITLE_MAX_LENGTH} characters`
-    }
-
-    // Validate description (optional but has max length)
-    if (description && description.length > VALIDATION_LIMITS.DESCRIPTION_MAX_LENGTH) {
-      newErrors.description = `Description must be less than ${VALIDATION_LIMITS.DESCRIPTION_MAX_LENGTH} characters`
-    }
-
-    setErrors(newErrors)
-    return Object.keys(newErrors).length === 0
-  }
-
-  const handleBlur = (field: string) => {
-    setTouched({ ...touched, [field]: true })
-    validateForm()
-  }
-
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-
-    // Mark all fields as touched
-    setTouched({ title: true, description: true })
-
-    // Validate form
-    if (!validateForm()) {
-      return
-    }
-
-    const data: CreateTaskData | UpdateTaskData = {
-      title: title.trim(),
-      description: description.trim() || undefined,
-    }
-
-    await onSubmit(data)
-  }
-
-  const titleCharCount = title.length
-  const descriptionCharCount = description.length
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    onSubmit({ title, description, completed });
+  };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4" noValidate>
+    <form onSubmit={handleSubmit} className="space-y-4">
       {error && (
-        <div
-          className="rounded-lg bg-red-50 p-4 text-sm text-red-800"
-          role="alert"
-        >
-          {error}
+        <div className="rounded-md bg-red-50 p-4 border border-red-200">
+          <p className="text-sm text-red-800">{error}</p>
         </div>
       )}
 
       <div>
-        <Input
+        <label htmlFor="title" className="block text-sm font-medium text-gray-700 mb-1">
+          Title
+        </label>
+        <input
           id="title"
-          name="title"
           type="text"
-          label="Title"
-          placeholder="Enter task title"
+          required
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          onBlur={() => handleBlur('title')}
-          error={touched.title ? errors.title : undefined}
-          required
-          fullWidth
-          disabled={isLoading}
-          autoFocus
+          className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+          placeholder="Task title"
         />
-        <div className="mt-1 text-right text-xs text-gray-500">
-          {titleCharCount} / {VALIDATION_LIMITS.TITLE_MAX_LENGTH}
-        </div>
       </div>
 
       <div>
-        <label
-          htmlFor="description"
-          className="block text-sm font-medium text-gray-700"
-        >
-          Description <span className="text-gray-500">(optional)</span>
+        <label htmlFor="description" className="block text-sm font-medium text-gray-700 mb-1">
+          Description
         </label>
         <textarea
           id="description"
-          name="description"
           rows={4}
-          placeholder="Add more details about this task..."
           value={description}
           onChange={(e) => setDescription(e.target.value)}
-          onBlur={() => handleBlur('description')}
-          className="mt-1.5 flex w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-base transition-colors placeholder:text-gray-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-          disabled={isLoading}
-          aria-invalid={touched.description && errors.description ? 'true' : 'false'}
-          aria-describedby={
-            touched.description && errors.description
-              ? 'description-error'
-              : undefined
-          }
+          className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+          placeholder="Task description (optional)"
         />
-        {touched.description && errors.description && (
-          <p
-            id="description-error"
-            className="mt-1 text-sm text-red-600"
-            role="alert"
-          >
-            {errors.description}
-          </p>
-        )}
-        <div className="mt-1 text-right text-xs text-gray-500">
-          {descriptionCharCount} / {VALIDATION_LIMITS.DESCRIPTION_MAX_LENGTH}
-        </div>
       </div>
 
-      <div className="flex gap-3 pt-2">
-        <Button
-          type="submit"
-          variant="primary"
-          fullWidth
-          isLoading={isLoading}
-          disabled={isLoading || !title.trim()}
-        >
-          {isLoading
-            ? mode === 'create'
-              ? 'Creating...'
-              : 'Saving...'
-            : mode === 'create'
-            ? 'Create Task'
-            : 'Save Changes'}
-        </Button>
-        <Button
+      <div className="flex items-center">
+        <input
+          id="completed"
+          type="checkbox"
+          checked={completed}
+          onChange={(e) => setCompleted(e.target.checked)}
+          className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
+        />
+        <label htmlFor="completed" className="ml-2 block text-sm text-gray-700">
+          Mark as completed
+        </label>
+      </div>
+
+      <div className="flex justify-end space-x-3 pt-4">
+        <button
           type="button"
-          variant="outline"
-          fullWidth
           onClick={onCancel}
           disabled={isLoading}
+          className="px-4 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50"
         >
           Cancel
-        </Button>
+        </button>
+        <button
+          type="submit"
+          disabled={isLoading}
+          className="px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50"
+        >
+          {isLoading ? 'Saving...' : task ? 'Update Task' : 'Create Task'}
+        </button>
       </div>
     </form>
-  )
-}
+  );
+};
+
+export default TaskForm;

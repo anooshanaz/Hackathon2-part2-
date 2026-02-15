@@ -27,7 +27,7 @@ export default function SignupPage() {
     password: string
   }) => {
     try {
-      await signup(data)
+      await signup(data.email, data.password)
       // Redirect to login page after successful signup
       router.push('/login?registered=true')
     } catch (err) {

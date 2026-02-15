@@ -100,7 +100,7 @@ export default function DashboardPage() {
               <h1 className="text-2xl font-bold text-gray-900">My Tasks</h1>
               {user && (
                 <p className="mt-1 text-sm text-gray-600">
-                  Welcome back, {user.username}
+                  Welcome back, {user.name || user.email}
                 </p>
               )}
             </div>
