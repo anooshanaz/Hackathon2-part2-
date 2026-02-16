@@ -41,3 +41,89 @@
 2026-02-15 10:10:10,287 - todo_app - INFO - Database initialized successfully
 2026-02-15 10:17:49,777 - todo_app - INFO - Starting up Todo App API
 2026-02-15 10:17:56,232 - todo_app - INFO - Database initialized successfully
+2026-02-16 07:36:36,075 - todo_app - INFO - Starting up Todo App API
+2026-02-16 07:36:42,640 - todo_app - INFO - Database initialized successfully
+2026-02-16 07:55:44,750 - todo_app - INFO - Starting up Todo App API
+2026-02-16 07:55:50,589 - todo_app - INFO - Database initialized successfully
+2026-02-16 07:55:56,497 - todo_app - INFO - Starting up Todo App API
+2026-02-16 07:56:01,856 - todo_app - INFO - Database initialized successfully
+2026-02-16 07:56:41,450 - todo_app - INFO - Starting up Todo App API
+2026-02-16 07:56:47,630 - todo_app - INFO - Database initialized successfully
+2026-02-16 07:56:53,450 - todo_app - INFO - Starting up Todo App API
+2026-02-16 07:56:59,099 - todo_app - INFO - Database initialized successfully
+2026-02-16 07:57:39,908 - todo_app - INFO - Starting up Todo App API
+2026-02-16 07:57:45,282 - todo_app - INFO - Database initialized successfully
+2026-02-16 07:58:02,186 - todo_app - INFO - Starting up Todo App API
+2026-02-16 07:58:07,707 - todo_app - INFO - Database initialized successfully
+2026-02-16 08:05:39,772 - todo_app - INFO - Starting up Todo App API
+2026-02-16 08:05:47,745 - todo_app - INFO - Database initialized successfully
+2026-02-16 08:08:33,287 - todo_app - INFO - Starting up Todo App API
+2026-02-16 08:08:36,663 - todo_app - ERROR - Error initializing database: 'Server' object has no attribute '_captured_signals'
+2026-02-16 08:08:39,492 - todo_app - INFO - Starting up Todo App API
+2026-02-16 08:08:43,536 - todo_app - INFO - Database initialized successfully
+2026-02-16 08:08:51,969 - todo_app - INFO - Starting up Todo App API
+2026-02-16 08:08:56,214 - todo_app - INFO - Database initialized successfully
+2026-02-16 08:20:12,994 - todo_app - INFO - Starting up Todo App API
+2026-02-16 08:20:18,325 - todo_app - INFO - Database initialized successfully
+2026-02-16 08:20:25,318 - todo_app - INFO - Starting up Todo App API
+2026-02-16 08:20:29,604 - todo_app - INFO - Database initialized successfully
+2026-02-16 08:20:58,681 - todo_app - INFO - Starting up Todo App API
+2026-02-16 08:21:03,001 - todo_app - INFO - Database initialized successfully
+2026-02-16 08:25:59,187 - todo_app - INFO - Starting up Todo App API
+2026-02-16 08:26:03,839 - todo_app - INFO - Database initialized successfully
+2026-02-16 08:26:20,301 - todo_app - INFO - Starting up Todo App API
+2026-02-16 08:26:24,799 - todo_app - INFO - Database initialized successfully
+2026-02-16 08:27:05,827 - todo_app - INFO - Starting up Todo App API
+2026-02-16 08:27:07,711 - todo_app - ERROR - Error initializing database: 'Server' object has no attribute '_captured_signals'
+2026-02-16 08:27:09,314 - todo_app - INFO - Starting up Todo App API
+2026-02-16 08:27:13,693 - todo_app - INFO - Database initialized successfully
+2026-02-16 08:27:21,844 - todo_app - INFO - Starting up Todo App API
+2026-02-16 08:27:26,689 - todo_app - INFO - Database initialized successfully
+2026-02-16 08:27:31,529 - todo_app - INFO - Starting up Todo App API
+2026-02-16 08:27:35,625 - todo_app - INFO - Database initialized successfully
+2026-02-16 08:27:44,160 - todo_app - INFO - Starting up Todo App API
+2026-02-16 08:27:48,436 - todo_app - INFO - Database initialized successfully
+2026-02-16 08:27:52,522 - todo_app - INFO - Starting up Todo App API
+2026-02-16 08:27:56,570 - todo_app - INFO - Database initialized successfully
+2026-02-16 08:30:15,428 - todo_app - INFO - Starting up Todo App API
+2026-02-16 08:30:20,448 - todo_app - INFO - Database initialized successfully
+2026-02-16 08:30:43,609 - todo_app - INFO - Starting up Todo App API
+2026-02-16 08:30:47,791 - todo_app - INFO - Database initialized successfully
+2026-02-16 08:30:59,337 - todo_app - INFO - Starting up Todo App API
+2026-02-16 08:31:03,928 - todo_app - INFO - Database initialized successfully
+2026-02-16 08:33:18,119 - todo_app - INFO - Starting up Todo App API
+2026-02-16 08:33:22,329 - todo_app - INFO - Database initialized successfully
+2026-02-16 08:33:26,664 - todo_app - INFO - Starting up Todo App API
+2026-02-16 08:33:30,878 - todo_app - INFO - Database initialized successfully
+2026-02-16 08:33:43,662 - todo_app - INFO - Starting up Todo App API
+2026-02-16 08:33:47,666 - todo_app - INFO - Database initialized successfully
+2026-02-16 08:34:12,231 - todo_app - INFO - Starting up Todo App API
+2026-02-16 08:34:16,474 - todo_app - INFO - Database initialized successfully
+2026-02-16 08:34:20,465 - todo_app - INFO - Starting up Todo App API
+2026-02-16 08:34:24,521 - todo_app - INFO - Database initialized successfully
+2026-02-16 08:35:13,753 - todo_app - INFO - Starting up Todo App API
+2026-02-16 08:35:18,099 - todo_app - INFO - Database initialized successfully
+2026-02-16 08:37:08,858 - todo_app - INFO - Starting up Todo App API
+2026-02-16 08:37:13,248 - todo_app - INFO - Database initialized successfully
+2026-02-16 08:37:20,268 - todo_app - INFO - Starting up Todo App API
+2026-02-16 08:37:24,512 - todo_app - INFO - Database initialized successfully
+2026-02-16 08:38:02,267 - todo_app - INFO - Starting up Todo App API
+2026-02-16 08:38:06,246 - todo_app - INFO - Database initialized successfully
+2026-02-16 08:38:33,693 - todo_app - INFO - Starting up Todo App API
+2026-02-16 08:38:38,635 - todo_app - INFO - Database initialized successfully
+2026-02-16 08:38:44,474 - todo_app - INFO - Starting up Todo App API
+2026-02-16 08:38:48,471 - todo_app - INFO - Database initialized successfully
+2026-02-16 08:38:53,065 - todo_app - INFO - Starting up Todo App API
+2026-02-16 08:38:57,323 - todo_app - INFO - Database initialized successfully
+2026-02-16 08:43:53,539 - todo_app - INFO - Starting up Todo App API
+2026-02-16 08:43:58,019 - todo_app - INFO - Database initialized successfully
+2026-02-16 08:48:03,198 - todo_app - INFO - Starting up Todo App API
+2026-02-16 08:48:04,981 - todo_app - ERROR - Error initializing database: 'Server' object has no attribute '_captured_signals'
+2026-02-16 08:48:06,783 - todo_app - INFO - Starting up Todo App API
+2026-02-16 08:48:10,708 - todo_app - INFO - Database initialized successfully
+2026-02-16 08:48:44,039 - todo_app - INFO - Starting up Todo App API
+2026-02-16 08:48:47,938 - todo_app - INFO - Database initialized successfully
+2026-02-16 08:49:55,593 - todo_app - INFO - Starting up Todo App API
+2026-02-16 08:50:00,409 - todo_app - INFO - Database initialized successfully
+2026-02-16 08:50:23,807 - todo_app - INFO - Starting up Todo App API
+2026-02-16 08:50:27,910 - todo_app - INFO - Database initialized successfully

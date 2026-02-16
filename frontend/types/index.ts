@@ -94,10 +94,10 @@ export interface ApiError {
 
 export const API_ENDPOINTS = {
   AUTH: {
-    LOGIN: '/api/auth/login',
-    REGISTER: '/api/auth/register',
-    LOGOUT: '/api/auth/logout',
-    REFRESH: '/api/auth/refresh',
+    LOGIN: '/auth/login',
+    REGISTER: '/auth/register',
+    LOGOUT: '/auth/logout',
+    REFRESH: '/auth/refresh',
   },
   TASKS: {
     LIST: '/api/tasks',
